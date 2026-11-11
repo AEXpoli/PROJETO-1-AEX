@@ -30,7 +30,7 @@
     "verify:prototype": "node scripts/verify-prototype.mjs",
     "mobile:doctor": "npm run doctor --workspace=@aex/mobile",
     "patch:dependencies": "patch-package --error-on-fail && npm run patch:dependencies --workspace=@aex/mobile",
-    "postinstall": "npm run patch:dependencies"
+    "postinstall": "node scripts/postinstall.mjs"
   },
   "devDependencies": {
     "@aex/config": "0.1.0",
