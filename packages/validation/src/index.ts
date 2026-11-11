@@ -1,5 +1,12 @@
 import { z } from 'zod';
 export {
+  submitExerciseAttemptSchema,
+  recordedExerciseResultSchema,
+  attemptsResponseSchema,
+  participantProgressSchema,
+  achievementsResponseSchema,
+} from './attempts';
+export {
   contentIdSchema,
   learningModuleSchema,
   exerciseOptionSchema,

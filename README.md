@@ -16,6 +16,8 @@ Este é o **README oficial e centralizado** do projeto. Reúne proposta acadêmi
 
 **Fase 5.4:** endpoints autenticados de leitura do catálogo publicado e seed educativa fictícia. Veja [contratos, proteção de gabaritos e testes](apps/api/CONTENT.md).
 
+**Etapa 5.5:** endpoints de respostas, histórico, progresso e conquistas implementados com transação PostgreSQL e idempotência. A migração incremental ainda precisa ser aplicada no ambiente remoto. Veja [fluxo, ativação e testes](apps/api/ATTEMPTS.md).
+
 ## 2. Problema e justificativa
 
 A proposta inicial, “Prevenção de golpes e engenharia social voltada a grupos vulneráveis”, descreve situações em que confiança, urgência, medo e pouca familiaridade digital favorecem decisões inseguras: um suposto familiar pede dinheiro, uma falsa central solicita códigos ou uma mensagem oferece benefícios por meio de um link.

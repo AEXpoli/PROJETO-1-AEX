@@ -1,4 +1,4 @@
-// Generated from project iskobkikhtwamsdhsscn via Supabase; no data or credentials.
+// Generated from project iskobkikhtwamsdhsscn; augmented for the local 5.5 migration.
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents -- Preserve generated Supabase helper types. */
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
@@ -130,6 +130,7 @@ export type Database = {
       };
       exercise_attempts: {
         Row: {
+          result: Json | null;
           answered_at: string;
           assignment_id: string | null;
           exercise_id: string;
@@ -140,6 +141,7 @@ export type Database = {
         };
         Insert: {
           answered_at?: string;
+          result?: Json | null;
           assignment_id?: string | null;
           exercise_id: string;
           id?: string;
@@ -149,6 +151,7 @@ export type Database = {
         };
         Update: {
           answered_at?: string;
+          result?: Json | null;
           assignment_id?: string | null;
           exercise_id?: string;
           id?: string;
@@ -224,6 +227,7 @@ export type Database = {
       };
       exercises: {
         Row: {
+          category: string | null;
           created_at: string;
           id: string;
           module_id: string;
@@ -237,6 +241,7 @@ export type Database = {
           created_at?: string;
           id?: string;
           module_id: string;
+          category?: string | null;
           question: string;
           scenario: string;
           sort_order?: number;
@@ -247,6 +252,7 @@ export type Database = {
           created_at?: string;
           id?: string;
           module_id?: string;
+          category?: string | null;
           question?: string;
           scenario?: string;
           sort_order?: number;
@@ -448,7 +454,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      aex_record_attempt: {
+        Args: {
+          p_participant_id: string;
+          p_attempt_id: string;
+          p_exercise_id: string;
+          p_selected_option_id: string;
+          p_assignment_id?: string;
+        };
+        Returns: Json;
+      };
+      aex_learning_read: {
+        Args: { p_participant_id: string; p_resource: string };
+        Returns: Json;
+      };
     };
     Enums: {
       [_ in never]: never;

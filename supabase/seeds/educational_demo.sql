@@ -53,4 +53,10 @@ insert into public.exercise_options (id, exercise_id, option_text, is_correct, e
  'Um código de confirmação também pode permitir acesso à conta ou autorizar ações.', 2)
 on conflict (id) do nothing;
 
+-- Fill only the previously absent classification of these controlled demo IDs.
+update public.exercises set category = 'phishing'
+where id in ('a5400000-0000-4000-8000-000000000101', 'a5400000-0000-4000-8000-000000000102') and category is null;
+update public.exercises set category = 'social-engineering'
+where id = 'a5400000-0000-4000-8000-000000000103' and category is null;
+
 commit;

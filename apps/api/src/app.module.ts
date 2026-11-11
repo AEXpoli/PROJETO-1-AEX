@@ -3,6 +3,7 @@ import { HealthModule } from './health/health.module';
 import { SupabaseModule } from './supabase/supabase.module';
 import { AuthModule } from './auth/auth.module';
 import { ContentModule } from './content/content.module';
+import { AttemptsModule } from './attempts/attempts.module';
 
-@Module({ imports: [HealthModule, SupabaseModule, AuthModule, ContentModule] })
+@Module({ imports: [HealthModule, SupabaseModule, AuthModule, ContentModule, AttemptsModule] })
 export class AppModule {}

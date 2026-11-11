@@ -12,7 +12,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand && npm run test:database",
+    "test:attempts": "jest --runInBand --runTestsByPath test/attempts.spec.ts && npm run test:database",
+    "test:database": "node --test test/attempts.database.test.mjs"
   },
   "dependencies": {
     "@aex/types": "0.1.0",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@aex/config": "0.1.0",
+    "@electric-sql/pglite": "0.5.16",
     "@nestjs/cli": "11.0.24",
     "@nestjs/testing": "11.2.7",
     "@types/express": "5.0.6",

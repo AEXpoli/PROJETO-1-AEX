@@ -48,6 +48,24 @@ export interface ExerciseResult {
   evaluation: 'demonstrative' | 'server';
 }
 
+/** Request id is the idempotency key; identity and correctness are server-owned. */
+export interface SubmitExerciseAttempt {
+  id: string;
+  selectedOptionId: string;
+  assignmentId?: string | undefined;
+}
+
+export type RecordedExerciseResult = ExerciseResult & {
+  evaluation: 'server';
+  completedAt: string;
+  assignmentId: string | null;
+  pointsAwarded: 0 | 10;
+};
+
+export type ParticipantProgress = Omit<TrainingProgress, 'results' | 'achievements' | 'evaluation'> & {
+  evaluation: 'server';
+};
+
 export interface Achievement {
   id: string;
   title: string;
