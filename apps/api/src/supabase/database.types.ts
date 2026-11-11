@@ -1,4 +1,4 @@
-// Generated from project iskobkikhtwamsdhsscn; augmented for the local 5.5 migration.
+// Generated from project iskobkikhtwamsdhsscn; augmented for local 5.5 and 5.7 RPCs.
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents -- Preserve generated Supabase helper types. */
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
@@ -454,6 +454,18 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      aex_create_admin_invitation: {
+        Args: { p_issuer: string; p_organization: string; p_email: string; p_name: string };
+        Returns: Json;
+      };
+      aex_admin_invitation_delivery: {
+        Args: { p_issuer: string; p_invitation: string; p_target: string | null };
+        Returns: undefined;
+      };
+      aex_accept_admin_invitation: {
+        Args: { p_user: string; p_invitation: string };
+        Returns: Json;
+      };
       aex_record_attempt: {
         Args: {
           p_participant_id: string;

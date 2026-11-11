@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --fix",
     "test": "jest --runInBand && npm run test:database",
     "test:attempts": "jest --runInBand --runTestsByPath test/attempts.spec.ts && npm run test:database",
-    "test:database": "node --test test/attempts.database.test.mjs"
+    "test:database": "node --test test/attempts.database.test.mjs",
+    "test:admin-auth": "jest --runInBand --runTestsByPath test/auth.spec.ts test/admin-invitations.spec.ts && node --test test/admin-invitations.database.test.mjs"
   },
   "dependencies": {
     "@aex/types": "0.1.0",

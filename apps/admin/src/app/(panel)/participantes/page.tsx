@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { PageHeading, ParticipantsTable } from '../../components/Report';
-import { adminService } from '../../services/service';
-import { filterParticipants } from '../../services/adminService';
+import { PageHeading, ParticipantsTable } from '../../../components/Report';
+import { adminService } from '../../../services/service';
+import { filterParticipants } from '../../../services/adminService';
 
 export default async function ParticipantsPage({ searchParams }: { searchParams: Promise<{ q?: string | string[]; status?: string | string[] }> }) {
   const [params, report] = await Promise.all([searchParams, adminService.getReport()]);

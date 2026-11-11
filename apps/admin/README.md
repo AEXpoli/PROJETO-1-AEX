@@ -1,5 +1,9 @@
 # AEX Admin — demonstração
 
+A autenticação administrativa da Etapa 5.7, a ativação por convite e a configuração
+para testar pelo navegador estão em [AUTH.md](AUTH.md). Os indicadores continuam
+demonstrativos, protegidos por autorização real. O texto abaixo registra a Fase 4.
+
 Referência técnica da etapa 4.6. A apresentação oficial, o histórico das fases e
 o registro de horas estão centralizados no [README principal](../../README.md).
 

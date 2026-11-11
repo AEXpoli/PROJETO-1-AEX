@@ -1,0 +1,30 @@
+diff --git a/node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts b/node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts
+--- a/node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts
++++ b/node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts
+@@ -499,5 +499,5 @@
+  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredential MDN - PublicKeyCredential}
+  */
+-export interface PublicKeyCredentialFuture<T extends PublicKeyCredentialJSON = PublicKeyCredentialJSON> extends PublicKeyCredential {
++export interface PublicKeyCredentialFuture<T extends PublicKeyCredentialJSON = PublicKeyCredentialJSON> extends Omit<PublicKeyCredential, 'toJSON'> {
+     /**
+      * The type of the credential (always "public-key").
+diff --git a/node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts b/node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts
+--- a/node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts
++++ b/node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts
+@@ -499,5 +499,5 @@
+  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredential MDN - PublicKeyCredential}
+  */
+-export interface PublicKeyCredentialFuture<T extends PublicKeyCredentialJSON = PublicKeyCredentialJSON> extends PublicKeyCredential {
++export interface PublicKeyCredentialFuture<T extends PublicKeyCredentialJSON = PublicKeyCredentialJSON> extends Omit<PublicKeyCredential, 'toJSON'> {
+     /**
+      * The type of the credential (always "public-key").
+diff --git a/node_modules/@supabase/auth-js/src/lib/webauthn.dom.ts b/node_modules/@supabase/auth-js/src/lib/webauthn.dom.ts
+--- a/node_modules/@supabase/auth-js/src/lib/webauthn.dom.ts
++++ b/node_modules/@supabase/auth-js/src/lib/webauthn.dom.ts
+@@ -537,5 +537,5 @@
+ export interface PublicKeyCredentialFuture<
+   T extends PublicKeyCredentialJSON = PublicKeyCredentialJSON,
+-> extends PublicKeyCredential {
++> extends Omit<PublicKeyCredential, 'toJSON'> {
+   /**
+    * The type of the credential (always "public-key").

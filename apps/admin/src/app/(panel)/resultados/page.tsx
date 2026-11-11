@@ -1,5 +1,5 @@
-import { ExerciseTable, MethodNote, Metrics, PageHeading, ResultsChart } from '../../components/Report';
-import { adminService } from '../../services/service';
+import { ExerciseTable, MethodNote, Metrics, PageHeading, ResultsChart } from '../../../components/Report';
+import { adminService } from '../../../services/service';
 
 export default async function ResultsPage() {
   const report = await adminService.getReport();

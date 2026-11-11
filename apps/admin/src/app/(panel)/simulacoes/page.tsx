@@ -1,5 +1,5 @@
-import { EmptyState, PageHeading, percentage } from '../../components/Report';
-import { adminService } from '../../services/service';
+import { EmptyState, PageHeading, percentage } from '../../../components/Report';
+import { adminService } from '../../../services/service';
 
 const channels = { sms: 'Mensagem SMS', link: 'Endereço eletrônico', call: 'Ligação telefônica' };
 

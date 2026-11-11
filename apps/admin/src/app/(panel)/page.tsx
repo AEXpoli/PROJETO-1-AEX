@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link';
-import { ExerciseTable, Metrics, PageHeading, ParticipationChart, ResultsChart } from '../components/Report';
-import { adminService } from '../services/service';
+import { ExerciseTable, Metrics, PageHeading, ParticipationChart, ResultsChart } from '../../components/Report';
+import { adminService } from '../../services/service';
 
 export default async function HomePage() {
   const report = await adminService.getReport();
