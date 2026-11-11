@@ -1,6 +1,8 @@
 {
   "extends": "@aex/config/typescript/node.json",
   "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "isolatedModules": true,

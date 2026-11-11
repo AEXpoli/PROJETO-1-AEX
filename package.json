@@ -12,6 +12,9 @@
     "packages/*"
   ],
   "scripts": {
+    "supabase": "supabase",
+    "db:history": "supabase migration list --remote=iskobkikhtwamsdhsscn",
+    "db:dry-run": "supabase db push --remote=iskobkikhtwamsdhsscn --dry-run --skip-vault",
     "start": "npm --prefix examples/prototype start",
     "dev": "turbo watch dev",
     "dev:api": "turbo watch dev --filter=@aex/api",
@@ -37,6 +40,7 @@
     "eslint": "9.39.5",
     "patch-package": "8.0.1",
     "prettier": "3.9.10",
+    "supabase": "3.1.0",
     "turbo": "2.11.10",
     "typescript": "6.0.3"
   },

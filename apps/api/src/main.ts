@@ -1,12 +1,11 @@
 import 'reflect-metadata';
-import { existsSync } from 'node:fs';
-import { loadEnvFile } from 'node:process';
+import { loadApiEnv } from './load-env';
 import { NestFactory } from '@nestjs/core';
 import { portSchema } from '@aex/validation';
 import { AppModule } from './app.module';
 
 async function bootstrap(): Promise<void> {
-  if (existsSync('.env')) loadEnvFile('.env');
+  loadApiEnv();
   const port = portSchema.parse(process.env.PORT ?? 3002);
   const app = await NestFactory.create(AppModule);
   app.enableShutdownHooks();

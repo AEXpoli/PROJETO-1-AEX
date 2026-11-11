@@ -10,6 +10,8 @@ Este é o **README oficial e centralizado** do projeto. Reúne proposta acadêmi
 
 **Situação consolidada em 03/11/2026:** as seis etapas demonstrativas da Fase 4 estão presentes no código. O mobile oferece exercícios, feedback, progressão e persistência local; o admin apresenta fixtures próprias. A API NestJS continua limitada ao endpoint de saúde. Banco, autenticação e integração real não estão implementados. O bloqueio conhecido de typecheck mobile permanece: implementação presente não significa validação integral ou prontidão para produção.
 
+**Atualização da Fase 5.2 (10/11/2026):** configuração Supabase, histórico SQL remoto recuperado e serviço reutilizável na API implementados. Veja [configuração, migrações e teste de conectividade](supabase/README.md). A conexão real pela API depende da chave secreta local; autenticação e integração com as interfaces continuam fora desta entrega.
+
 ## 2. Problema e justificativa
 
 A proposta inicial, “Prevenção de golpes e engenharia social voltada a grupos vulneráveis”, descreve situações em que confiança, urgência, medo e pouca familiaridade digital favorecem decisões inseguras: um suposto familiar pede dinheiro, uma falsa central solicita códigos ou uma mensagem oferece benefícios por meio de um link.

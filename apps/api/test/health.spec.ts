@@ -3,11 +3,15 @@ import { Test } from '@nestjs/testing';
 import type { Server } from 'node:http';
 import request from 'supertest';
 import { AppModule } from '../src/app.module';
+import { SupabaseService } from '../src/supabase/supabase.service';
 
 describe('HTTP foundation', () => {
   let app: INestApplication<Server>;
   beforeAll(async () => {
-    const module = await Test.createTestingModule({ imports: [AppModule] }).compile();
+    const module = await Test.createTestingModule({ imports: [AppModule] })
+      .overrideProvider(SupabaseService)
+      .useValue({})
+      .compile();
     app = module.createNestApplication<INestApplication<Server>>();
     await app.init();
   });
