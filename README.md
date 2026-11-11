@@ -12,6 +12,8 @@ Este é o **README oficial e centralizado** do projeto. Reúne proposta acadêmi
 
 **Atualização da Fase 5.2 (10/11/2026):** configuração Supabase, histórico SQL remoto recuperado e serviço reutilizável na API implementados. Veja [configuração, migrações e teste de conectividade](supabase/README.md). A conexão real pela API depende da chave secreta local; autenticação e integração com as interfaces continuam fora desta entrega.
 
+**Fase 5.3:** autenticação Supabase Auth, autorização por vínculo organizacional, `GET /me` e provisionamento por operador. Consulte [fluxo, endpoints e testes](apps/api/AUTH.md).
+
 ## 2. Problema e justificativa
 
 A proposta inicial, “Prevenção de golpes e engenharia social voltada a grupos vulneráveis”, descreve situações em que confiança, urgência, medo e pouca familiaridade digital favorecem decisões inseguras: um suposto familiar pede dinheiro, uma falsa central solicita códigos ou uma mensagem oferece benefícios por meio de um link.

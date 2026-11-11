@@ -1,14 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from './database.types';
 import { readSupabaseConfig } from './supabase.config';
 
 @Injectable()
 export class SupabaseService {
-  readonly client: ReturnType<typeof createClient>;
+  readonly client: SupabaseClient<Database>;
 
   constructor() {
     const { url, secretKey } = readSupabaseConfig();
-    this.client = createClient(url, secretKey, {
+    this.client = createClient<Database>(url, secretKey, {
+      global: {
+        fetch: (input, init) =>
+          fetch(input, {
+            ...init,
+            signal: init?.signal
+              ? AbortSignal.any([init.signal, AbortSignal.timeout(5000)])
+              : AbortSignal.timeout(5000),
+          }),
+      },
       auth: {
         persistSession: false,
         autoRefreshToken: false,

@@ -4,6 +4,7 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "provision:user": "npm run build && node dist/provision-initial-user.js",
     "check:supabase": "npm run build && node dist/check-supabase.js",
     "dev": "nest start --watch",
     "build": "nest build",
