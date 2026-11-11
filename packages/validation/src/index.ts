@@ -1,4 +1,12 @@
 import { z } from 'zod';
+export {
+  contentIdSchema,
+  learningModuleSchema,
+  exerciseOptionSchema,
+  participantExerciseSchema,
+  learningModulesResponseSchema,
+  participantExercisesResponseSchema,
+} from './content';
 
 export const portSchema = z
   .union([z.number(), z.string().regex(/^\d+$/)])

@@ -1,5 +1,17 @@
 /** Conteúdo público: não contém gabarito nem explicações antes da resposta. */
 export interface ExerciseOption { id: string; label: string }
+/** Leitura da API antes da resposta; o cenário atual do banco é texto. */
+export type ParticipantExercise = Pick<Exercise, 'id' | 'moduleId' | 'title' | 'question' | 'options'> & {
+  scenario: string;
+  sortOrder: number;
+};
+
+export interface LearningModule {
+  id: string;
+  title: string;
+  description: string;
+  sortOrder: number;
+}
 export interface Exercise {
   id: string;
   moduleId: string;

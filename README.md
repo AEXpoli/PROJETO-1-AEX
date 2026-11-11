@@ -14,6 +14,8 @@ Este é o **README oficial e centralizado** do projeto. Reúne proposta acadêmi
 
 **Fase 5.3:** autenticação Supabase Auth, autorização por vínculo organizacional, `GET /me` e provisionamento por operador. Consulte [fluxo, endpoints e testes](apps/api/AUTH.md).
 
+**Fase 5.4:** endpoints autenticados de leitura do catálogo publicado e seed educativa fictícia. Veja [contratos, proteção de gabaritos e testes](apps/api/CONTENT.md).
+
 ## 2. Problema e justificativa
 
 A proposta inicial, “Prevenção de golpes e engenharia social voltada a grupos vulneráveis”, descreve situações em que confiança, urgência, medo e pouca familiaridade digital favorecem decisões inseguras: um suposto familiar pede dinheiro, uma falsa central solicita códigos ou uma mensagem oferece benefícios por meio de um link.

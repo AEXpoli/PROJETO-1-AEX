@@ -3,7 +3,7 @@
 Projeto remoto: `iskobkikhtwamsdhsscn`. PostgreSQL remoto: 17.11.
 `config.toml` foi gerado por `supabase init` e configura a stack local; seu
 `project_id = "aex"` identifica os containers locais, não o projeto hospedado.
-Seeds estão desativados nesta etapa.
+Na Fase 5.4, a seed fictícia local foi habilitada. Veja [conteúdos educativos e seed](../apps/api/CONTENT.md).
 
 ## Versões e comandos
 
