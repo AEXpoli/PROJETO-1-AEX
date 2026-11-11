@@ -1,5 +1,10 @@
 # Treinamento demonstrativo — persistência local
 
+A autenticação real da Etapa 5.6 e as instruções para Expo Go estão em
+[AUTH.md](AUTH.md). Exercícios e resultados continuam demonstrativos; o progresso
+local agora é separado por participante autenticado. A descrição abaixo registra
+a implementação da Fase 4, anterior à autenticação.
+
 Referência técnica específica do mobile. A apresentação oficial, o histórico das
 fases, as horas e o estado consolidado estão no [README principal](../../README.md).
 Este documento detalha a etapa 4.5 e a fronteira de integração futura.

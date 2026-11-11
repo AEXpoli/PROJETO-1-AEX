@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useState, type PropsWithChildren } from 'react';
-import type { Exercise, ExerciseAttempt, TrainingProgress } from '@aex/types/training';
+import { createContext, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
+import type { Exercise, ExerciseAttempt, TrainingProgress, TrainingService } from '@aex/types/training';
 import { modules as moduleFixtures, type LearningModule } from '../data/learning';
 import { Button, Header, Screen } from '../components/ui';
-import { trainingService } from '../services/trainingService';
+import { createTrainingService } from '../services/trainingService';
 
-function useProgressValue(exercises: readonly Exercise[], initial: TrainingProgress) {
+function useProgressValue(exercises: readonly Exercise[], initial: TrainingProgress, trainingService: TrainingService) {
   const [state, setState] = useState(initial);
   const modules: LearningModule[] = moduleFixtures.map((module) => {
     const progress = state.modules.find((item) => item.moduleId === module.id);
@@ -31,17 +31,18 @@ function useProgressValue(exercises: readonly Exercise[], initial: TrainingProgr
 
 const ProgressContext = createContext<ReturnType<typeof useProgressValue> | null>(null);
 
-function ReadyProgressProvider({ children, exercises, progress }: PropsWithChildren<{
-  exercises: readonly Exercise[]; progress: TrainingProgress;
+function ReadyProgressProvider({ children, exercises, progress, service }: PropsWithChildren<{
+  exercises: readonly Exercise[]; progress: TrainingProgress; service: TrainingService;
 }>) {
-  const value = useProgressValue(exercises, progress);
+  const value = useProgressValue(exercises, progress, service);
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
 }
 
 type LoadState = { status: 'loading' | 'failed' }
   | { status: 'ready'; exercises: readonly Exercise[]; progress: TrainingProgress };
 
-export function ProgressProvider({ children }: PropsWithChildren) {
+export function ProgressProvider({ children, participantId }: PropsWithChildren<{ participantId: string }>) {
+  const trainingService = useMemo(() => createTrainingService(participantId), [participantId]);
   const [load, setLoad] = useState<LoadState>({ status: 'loading' });
   const [retry, setRetry] = useState(0);
   useEffect(() => {
@@ -52,10 +53,10 @@ export function ProgressProvider({ children }: PropsWithChildren) {
       if (active) setLoad({ status: 'failed' });
     });
     return () => { active = false; };
-  }, [retry]);
+  }, [retry, trainingService]);
 
   if (load.status === 'ready') {
-    return <ReadyProgressProvider exercises={load.exercises} progress={load.progress}>{children}</ReadyProgressProvider>;
+    return <ReadyProgressProvider exercises={load.exercises} progress={load.progress} service={trainingService}>{children}</ReadyProgressProvider>;
   }
   return (
     <Screen>

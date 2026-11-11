@@ -7,10 +7,10 @@ function getStorage() {
   return storage;
 }
 
-export const progressStorage: ProgressStorage = {
-  read: () => Promise.resolve(getStorage().getItem('aex-training-v1')),
+export function createProgressStorage(participantId: string): ProgressStorage { return {
+  read: () => Promise.resolve(getStorage().getItem(`aex-training-${participantId}`)),
   write(value) {
-    getStorage().setItem('aex-training-v1', value);
+    getStorage().setItem(`aex-training-${participantId}`, value);
     return Promise.resolve();
   },
-};
+}; }

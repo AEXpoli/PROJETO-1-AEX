@@ -7,6 +7,6 @@ const config: ExpoConfig = {
   platforms: ['ios', 'android'],
   orientation: 'portrait',
   userInterfaceStyle: 'light',
-  plugins: ['expo-router'],
+  plugins: ['expo-router', 'expo-secure-store'],
 };
 export default config;
